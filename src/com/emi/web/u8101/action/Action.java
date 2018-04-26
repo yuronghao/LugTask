@@ -44,12 +44,11 @@ public class Action extends BaseAction {
 
 
 
-    /**
-     * @category 添加材料出库（直接插库）
-     *2016 2016年4月22日下午1:02:21
-     *void
-     *宋银海
-     */
+   /**
+   * @Desc 添加材料出库（直接插库）
+   * @author yurh
+   * @create 2018-04-26 15:37:47
+   **/
     public void addMeterialOut(){
 
         try {

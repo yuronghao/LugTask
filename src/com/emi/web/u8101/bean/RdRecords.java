@@ -29,6 +29,27 @@ public class RdRecords implements Serializable {
 	private BigDecimal	iSum;
 	private BigDecimal	ioriSum ;//原币价税合计
 
+
+	private String cdefine24;//第三个字段 叫做 产品编码
+	private String cdefine23;//第二个字段 叫做 机号
+	private String cdefine22;//第一个字段 叫单号
+
+	public String getCdefine24() {
+		return cdefine24;
+	}
+
+	public void setCdefine24(String cdefine24) {
+		this.cdefine24 = cdefine24;
+	}
+
+	public String getCdefine22() {
+		return cdefine22;
+	}
+
+	public void setCdefine22(String cdefine22) {
+		this.cdefine22 = cdefine22;
+	}
+
 	public BigDecimal getIoriSum() {
 		return ioriSum;
 	}
@@ -134,8 +155,7 @@ public class RdRecords implements Serializable {
 	private int itrIds;//库存调拨单子表标识   TransVouchs autoID
 	 
 	private String cposition;//货位编码  
-	
-	private String cdefine23;//骆氏称重信息
+
 	
 	private String cdefine30;//自定义项10
 	

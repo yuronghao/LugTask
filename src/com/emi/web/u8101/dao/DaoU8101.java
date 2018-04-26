@@ -486,8 +486,8 @@ public class DaoU8101 extends BaseDao implements Serializable {
 
     public int[] addRdRecords11(List<RdRecords> rrss) {
         String sql="insert into "+Config.BUSINESSDATABASE+"RdRecords11(autoID,id,cInvCode,iquantity,inum,iunitCost,iprice,cbatch,cfree1,"
-                + " cfree2,cposition,cdefine30,ioMoDID,ioMoMID,comcode  ,dVDate,cdefine23 ,dMadeDate,iMassDate,cMassUnit  ,bcosting,bvmiUsed,cvmivencode  ,iNQuantity,irowno) "
-                + " values(?,?,?,?,?,?,?,?,?,?,?,? ,?,?,?,? ,?,?,?,?,? ,?,?,? ,?) ";
+                + " cfree2,cposition,cdefine30,ioMoDID,ioMoMID,comcode  ,dVDate,cdefine23 ,dMadeDate,iMassDate,cMassUnit  ,bcosting,bvmiUsed,cvmivencode  ,iNQuantity,irowno,cdefine22,cdefine24) "
+                + " values(?,?,?,?,?,?,?,?,?,?,?,? ,?,?,?,? ,?,?,?,?,? ,?,?,? ,?,?,?) ";
         System.out.println(sql);
         return this.getJdbcTemplate().batchUpdate(sql, new BatchPreparedStatementSetter() {
 
@@ -540,6 +540,10 @@ public class DaoU8101 extends BaseDao implements Serializable {
                 ps.setBigDecimal(24, rr.getInQuantity());
 //                ps.setString(28, rr.getDbarvdate() );
                 ps.setString(25, CommonUtil.isNullObject(rr.getIrowno())?null:rr.getIrowno().toString());
+
+                //2018-4-26 新增修改
+                ps.setString(26, CommonUtil.isNullObject(rr.getCdefine22())?null:rr.getCdefine22().toString());
+                ps.setString(27, CommonUtil.isNullObject(rr.getCdefine24())?null:rr.getCdefine24().toString());
 //                ps.setString(30, rr.getItaxrate());
             }
 

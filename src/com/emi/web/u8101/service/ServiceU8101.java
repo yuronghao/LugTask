@@ -406,6 +406,12 @@ public class ServiceU8101 extends EmiPluginService {
 //                        rds.setCvmivencode(CommonUtil.Obj2String(prowctJson.get("cvMIVenCode")));//代管商编码
 //                    }
 
+                    //================2018-4-26 新增修改 start==============
+                    rds.setCdefine22(CommonUtil.isNullObject(prowctJson.get("orderNo"))?"":prowctJson.get("orderNo").toString());
+                    rds.setCdefine23(CommonUtil.isNullObject(prowctJson.get("machineNo"))?"":prowctJson.get("machineNo").toString());
+                    rds.setCdefine24(CommonUtil.isNullObject(prowctJson.get("productCode"))?"":prowctJson.get("productCode").toString());
+                    //================2018-4-26 新增修改 end==============
+
                     rds.setBvmiUsed(bvmiUsed);
                     rds.setCinvCode(CommonUtil.isNullObject(prowctJson.get("goodsCode"))?"":prowctJson.get("goodsCode").toString());
                     rds.setIquantity(CommonUtil.str2BigDecimal(prowctJson.getString("submitNum")));//主数量
