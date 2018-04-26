@@ -1,5 +1,6 @@
 package com.emi.common.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -93,7 +94,20 @@ public class EmiPluginService {
 		
 		return billId;
 	}
-	
+
+
+	public static void main(String[] args){
+		int year=DateUtil.getToYear();
+		int month=DateUtil.getToMonth();
+		String strMonth;
+		if(String.valueOf(month).length()==1){
+			strMonth="0"+String.valueOf(month);
+		}else{
+			strMonth=String.valueOf(month);
+		}
+		int day = DateUtil.getDay(new Date());
+		System.out.println(day);
+	}
 	
 	public String getBillIdForYonYou(String billType){
 		
@@ -105,11 +119,18 @@ public class EmiPluginService {
 		}else{
 			strMonth=String.valueOf(month);
 		}
+
+		String strDay;
+		int day = DateUtil.getDay(new Date());
+		if(String.valueOf(day).length()==1){
+			strDay="0"+String.valueOf(day);
+		}else{
+			strDay=String.valueOf(day);
+		}
 		
-		String currentId=emiPluginDao.getBillIdForYonYou(billType, year+strMonth);
+		String currentId=emiPluginDao.getBillIdForYonYou(billType, year+strMonth+strDay);
 		
-		String billId=billType+year+strMonth+currentId;
-		
+		String billId=year+strMonth+strDay+currentId;
 		return billId;
 	}
 	
