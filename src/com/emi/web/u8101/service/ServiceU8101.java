@@ -374,7 +374,9 @@ public class ServiceU8101 extends EmiPluginService {
 
         AaDepartment ad=cacheCtrlService.getDepartment(jobj.getString("dptGid"));//领用部门信息
 
-        AaDepartment usead=cacheCtrlService.getDepartment(jobj.getString("dptGid"));//使用部门信息
+//        AaDepartment usead=cacheCtrlService.getDepartment(jobj.getString("notes"));
+        String notesUsedDepartment = jobj.getString("notes");// 使用部门信息 2018-5-21:修改为手动输入，就是直接是中文
+
 
         int i=1;//用来记录主表单号
         int rdOutVoucherId=0;
@@ -533,7 +535,7 @@ public class ServiceU8101 extends EmiPluginService {
 //            rdo.setIpurorderid(maps.get(0).get("moid").toString());//采购订单主表标识
             rdo.setCrdCode(jobj.getString("rdStyle"));// 收发类别编码
             rdo.setCdepCode(ad.getDepcode());
-            rdo.setcMemo(usead.getDepname());
+            rdo.setcMemo(notesUsedDepartment);
             rdRecord.add(rdo);
 
             i++;
