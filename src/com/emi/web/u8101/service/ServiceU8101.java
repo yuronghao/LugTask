@@ -199,7 +199,8 @@ public class ServiceU8101 extends EmiPluginService {
             rdo.setCsource("采购订单");
             rdo.setCwhCode(ckCode);
             rdo.setDdate(Timestamp.valueOf(DateUtil.getCurrDate(DateUtil.LONG_DATE_FORMAT)+" 00:00:00"));
-            rdo.setCcode(getBillIdForYonYou(Constants.EMICGRK));
+//            rdo.setCcode(getBillIdForYonYou(Constants.EMICGRK));
+            rdo.setCcode(jobj.getString("appBillCode"));//U8的单据号改为wms本地系统的单据号一致 20180607 ps:钱红兵说这么改的
             rdo.setCmaker(ymUser.getUserName());
             rdo.setcHandler(ymUser.getUserName());
             rdo.setDveriDate(Timestamp.valueOf(DateUtil.getCurrDate(DateUtil.LONG_DATE_FORMAT)+" 00:00:00"));//审核日期
@@ -523,7 +524,8 @@ public class ServiceU8101 extends EmiPluginService {
             rdo.setCsource("库存");//单据来源
             rdo.setCwhCode(ckCode);
             rdo.setDdate(Timestamp.valueOf(DateUtil.getCurrDate(DateUtil.LONG_DATE_FORMAT)+" 00:00:00"));
-            rdo.setCcode(getBillIdForYonYou(Constants.EMICLCK));
+//            rdo.setCcode(getBillIdForYonYou(Constants.EMICLCK));
+            rdo.setCcode(jobj.getString("appBillCode"));//U8的单据号改为wms本地系统的单据号一致 20180607 ps:钱红兵说这么改的
             rdo.setCmaker(ymUser.getUserName());
             rdo.setcHandler(ymUser.getUserName());
             rdo.setDveriDate(Timestamp.valueOf(DateUtil.getCurrDate(DateUtil.LONG_DATE_FORMAT)+" 00:00:00"));
